@@ -1,10 +1,14 @@
 # Rust
 /jsonschema/target
+/jsonschema_custom_validator/target/
+/jsonschema_custom_validation/target/
 /bindings/*/target
 .hypothesis
 .benchmarks
 /jsonschema/Cargo.lock
-
+/jsonschema_custom_validator/Cargo.lock
+/jsonschema_custom_validation/Cargo.lock
+/target/
 # IDEs
 /.idea
 /.vscode

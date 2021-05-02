@@ -1,0 +1,10 @@
+[profile.release]
+codegen-units = 1
+lto = "on"
+
+[workspace]
+members = [
+    "jsonschema",
+    "jsonschema_custom_validation",
+    "jsonschema_custom_validator"
+]

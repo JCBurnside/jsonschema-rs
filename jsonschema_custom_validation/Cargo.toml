@@ -1,0 +1,22 @@
+[package]
+name = "jsonschema_custom_validation"
+version = "0.8.0"
+authors = ["J Burnside <jcburnside97@gmail.com>"]
+edition = "2018"
+license = "MIT"
+readme = "../README.md"
+description = "A crate for a proc macro for custom JSON schema validation"
+repository = "https://github.com/Stranger6667/jsonschema-rs"
+keywords = ["jsonschema", "validation"]
+categories = ["web-programming"]
+
+[lib]
+proc-macro = true
+
+[dependencies]
+syn = {version="1.0.71",features=["full"]}
+quote = "1.0.9"
+jsonschema_custom_validator = {path="../jsonschema_custom_validator"}
+
+[dev-dependencies]
+trybuild = "1.0.42"

@@ -33,6 +33,8 @@ idna = ">= 0.2"
 ahash = "0.7"
 structopt = { version = ">= 0.3", optional = true }
 itoa = "0.4"
+jsonschema_custom_validator = {path = "../jsonschema_custom_validator" }
+jsonschema_custom_validation = {path = "../jsonschema_custom_validation" }
 
 [dev-dependencies]
 criterion = ">= 0.1"
@@ -48,6 +50,3 @@ reqwest = { version = ">= 0.10", features = ["blocking", "json"] }
 name = "jsonschema"
 harness = false
 
-[profile.release]
-codegen-units = 1
-lto = "on"

@@ -92,6 +92,8 @@ mod validator;
 pub use compilation::{options::CompilationOptions, JSONSchema};
 pub use error::{CompilationError, ErrorIterator, ValidationError};
 pub use schemas::Draft;
+pub use jsonschema_custom_validator::CustomFormat;
+pub use jsonschema_custom_validation::format;
 use serde_json::Value;
 
 /// A shortcut for validating `instance` against `schema`. Draft version is detected automatically.

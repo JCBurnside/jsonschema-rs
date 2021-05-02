@@ -10,6 +10,7 @@ use crate::{
     schemas,
 };
 use ahash::AHashMap;
+use jsonschema_custom_validator::CustomFormat;
 use serde_json::Value;
 use std::{borrow::Cow, fmt};
 
@@ -43,6 +44,7 @@ pub struct CompilationOptions {
     content_encoding_checks_and_converters:
         AHashMap<&'static str, Option<(ContentEncodingCheckType, ContentEncodingConverterType)>>,
     store: AHashMap<String, Value>,
+    formats : AHashMap<&'static str, Box<dyn crate::CustomFormat>>
 }
 
 impl CompilationOptions {
@@ -100,6 +102,23 @@ impl CompilationOptions {
     #[inline]
     pub fn with_draft(&mut self, draft: schemas::Draft) -> &mut Self {
         self.draft = Some(draft);
+        self
+    }
+
+
+    /// Validate with passed validator
+    /// ```rust
+    /// # use jsonschema::{format, CompilationOptions};
+    /// # #[format]
+    /// # fn custom(_:&str) -> bool {
+    /// #   true
+    /// # }
+    /// # let mut options = CompilationOptions::default();
+    /// options.with_format(&custom);
+    /// ```
+    #[inline] 
+    pub fn with_format<T: CustomFormat>(&mut self, format:&T) -> &mut Self {
+        
         self
     }
 
